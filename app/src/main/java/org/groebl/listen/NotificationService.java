@@ -52,7 +52,7 @@ public class NotificationService extends NotificationListenerService {
 
             String text_big = null;
             if (extras.get(Notification.EXTRA_BIG_TEXT) != null) {
-                title_big = extras.get(Notification.EXTRA_BIG_TEXT).toString();
+                text_big = extras.get(Notification.EXTRA_BIG_TEXT).toString();
             }
 
             String summary = null;
