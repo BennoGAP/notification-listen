@@ -81,7 +81,7 @@ public class MainActivity extends ActionBarActivity {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            if(set_notification) {
+            if(set_notification && !intent.getStringExtra("pack").equals("com.google.android.gms")) {
                 String pack = intent.getStringExtra("pack");
                 String ticker = intent.getStringExtra("ticker");
                 String title = intent.getStringExtra("title");
@@ -93,6 +93,7 @@ public class MainActivity extends ActionBarActivity {
                 String infotext = intent.getStringExtra("infotext");
                 String textlines = intent.getStringExtra("textlines");
                 String subtext = intent.getStringExtra("subtext");
+                Integer getid = intent.getIntExtra("getid", 0);
                 Long time1 = intent.getLongExtra("time1", 0);
                 Boolean time2 = intent.getBooleanExtra("time2", false);
                 Long time3 = intent.getLongExtra("time3", 0);
@@ -109,6 +110,7 @@ public class MainActivity extends ActionBarActivity {
                 if (tag != null) { output += "<br>Tag: " + tag; }
                 if (infotext != null) { output += "<br>Infotext: " + infotext; }
                 if (subtext != null) { output += "<br>Subtext: " + subtext; }
+                if (getid != 0) { output += "<br>ID: "+getid.toString(); }
                 output += "<br>Time: " + (System.currentTimeMillis() - time1) + " / " + (System.currentTimeMillis() - time3) + " / " + time2;
                 output += "<br>------------------";
 
@@ -142,7 +144,7 @@ public class MainActivity extends ActionBarActivity {
                 textview.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 1.0f));
                 textview.setTextSize(20);
                 textview.setTextColor(Color.parseColor("#0B07B9"));
-                textview.setText(Html.fromHtml("<b>" + ticker + "</b> (" + content + ")<br>------------------<br>"));
+                textview.setText(Html.fromHtml("<b>" + ticker + "</b> (" + content + ")<br>------------------"));
                 tr.addView(textview);
                 tab.addView(tr);
             }
