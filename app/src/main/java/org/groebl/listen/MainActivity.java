@@ -104,6 +104,17 @@ public class MainActivity extends ActionBarActivity {
                 output += "<br>Text: " + text;
                 if (text_big != null) { output += " (" + text_big + ")"; }
 
+
+                /*
+                String char_out = "";
+                for (int i = 0; i < text.length(); i++) {
+                    char_out = char_out + ":" + Integer.toHexString(text.charAt(i));
+                }
+
+                if (!char_out.equals("")) { output += "<br>Char: " + char_out; }
+                */
+
+
                 if (ticker != null) { output += "<br>Ticker: "+ ticker; }
                 if (summary != null) { output += "<br>Summary: " + summary; }
                 if (textlines != null) { output += "<br>Lines: " + textlines; }
